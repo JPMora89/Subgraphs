@@ -1,0 +1,65 @@
+type DefaultVersionSet @entity(immutable: true) {
+  id: Bytes!
+  version_: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ImplementationRegistered @entity(immutable: true) {
+  id: Bytes!
+  version_: BigInt! # uint256
+  implementationAddress_: Bytes! # address
+  initializer_: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type InstanceDeployed @entity(immutable: true) {
+  id: Bytes!
+  version_: BigInt! # uint256
+  instance_: Bytes! # address
+  initializationArguments_: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type InstanceUpgraded @entity(immutable: true) {
+  id: Bytes!
+  instance_: Bytes! # address
+  fromVersion_: BigInt! # uint256
+  toVersion_: BigInt! # uint256
+  migrationArguments_: Bytes! # bytes
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MapleGlobalsSet @entity(immutable: true) {
+  id: Bytes!
+  mapleGlobals_: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type UpgradePathDisabled @entity(immutable: true) {
+  id: Bytes!
+  fromVersion_: BigInt! # uint256
+  toVersion_: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type UpgradePathEnabled @entity(immutable: true) {
+  id: Bytes!
+  fromVersion_: BigInt! # uint256
+  toVersion_: BigInt! # uint256
+  migrator_: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}

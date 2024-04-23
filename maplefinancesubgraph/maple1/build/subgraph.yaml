@@ -1,0 +1,42 @@
+specVersion: 0.0.5
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Contract
+    network: mainnet
+    source:
+      address: "0xE463cD473EcC1d1A4ecF20b62624D84DD20a8339"
+      abi: Contract
+      startBlock: 16127003
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - DefaultVersionSet
+        - ImplementationRegistered
+        - InstanceDeployed
+        - InstanceUpgraded
+        - MapleGlobalsSet
+        - UpgradePathDisabled
+        - UpgradePathEnabled
+      abis:
+        - name: Contract
+          file: Contract/abis/Contract.json
+      eventHandlers:
+        - event: DefaultVersionSet(indexed uint256)
+          handler: handleDefaultVersionSet
+        - event: ImplementationRegistered(indexed uint256,indexed address,indexed address)
+          handler: handleImplementationRegistered
+        - event: InstanceDeployed(indexed uint256,indexed address,bytes)
+          handler: handleInstanceDeployed
+        - event: InstanceUpgraded(indexed address,indexed uint256,indexed uint256,bytes)
+          handler: handleInstanceUpgraded
+        - event: MapleGlobalsSet(indexed address)
+          handler: handleMapleGlobalsSet
+        - event: UpgradePathDisabled(indexed uint256,indexed uint256)
+          handler: handleUpgradePathDisabled
+        - event: UpgradePathEnabled(indexed uint256,indexed uint256,indexed address)
+          handler: handleUpgradePathEnabled
+      file: Contract/Contract.wasm

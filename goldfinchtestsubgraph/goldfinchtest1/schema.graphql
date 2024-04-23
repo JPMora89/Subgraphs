@@ -1,0 +1,154 @@
+type CreditLineMigrated @entity(immutable: true) {
+  id: Bytes!
+  oldCreditLine: Bytes! # address
+  newCreditLine: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DepositMade @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  tranche: BigInt! # uint256
+  tokenId: BigInt! # uint256
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DrawdownMade @entity(immutable: true) {
+  id: Bytes!
+  borrower: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DrawdownsPaused @entity(immutable: true) {
+  id: Bytes!
+  pool: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type DrawdownsUnpaused @entity(immutable: true) {
+  id: Bytes!
+  pool: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type EmergencyShutdown @entity(immutable: true) {
+  id: Bytes!
+  pool: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Paused @entity(immutable: true) {
+  id: Bytes!
+  account: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type PaymentApplied @entity(immutable: true) {
+  id: Bytes!
+  payer: Bytes! # address
+  pool: Bytes! # address
+  interest: BigInt! # uint256
+  principal: BigInt! # uint256
+  remaining: BigInt! # uint256
+  reserve: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type ReserveFundsCollected @entity(immutable: true) {
+  id: Bytes!
+  from: Bytes! # address
+  amount: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RoleGranted @entity(immutable: true) {
+  id: Bytes!
+  role: Bytes! # bytes32
+  account: Bytes! # address
+  sender: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type RoleRevoked @entity(immutable: true) {
+  id: Bytes!
+  role: Bytes! # bytes32
+  account: Bytes! # address
+  sender: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SharePriceUpdated @entity(immutable: true) {
+  id: Bytes!
+  pool: Bytes! # address
+  tranche: BigInt! # uint256
+  principalSharePrice: BigInt! # uint256
+  principalDelta: BigInt! # int256
+  interestSharePrice: BigInt! # uint256
+  interestDelta: BigInt! # int256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type SliceCreated @entity(immutable: true) {
+  id: Bytes!
+  pool: Bytes! # address
+  sliceId: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type TrancheLocked @entity(immutable: true) {
+  id: Bytes!
+  pool: Bytes! # address
+  trancheId: BigInt! # uint256
+  lockedUntil: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Unpaused @entity(immutable: true) {
+  id: Bytes!
+  account: Bytes! # address
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type WithdrawalMade @entity(immutable: true) {
+  id: Bytes!
+  owner: Bytes! # address
+  tranche: BigInt! # uint256
+  tokenId: BigInt! # uint256
+  interestWithdrawn: BigInt! # uint256
+  principalWithdrawn: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
